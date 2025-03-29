@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A019A2442D982916002433E7 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2432D982916002433E7 /* TimerModel.swift */; };
+		A019A2442D982916002433E7 /* PomodoroSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2432D982916002433E7 /* PomodoroSession.swift */; };
 		A019A2462D9829AB002433E7 /* FocusCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2452D9829AB002433E7 /* FocusCategory.swift */; };
 		A019A2482D982A1B002433E7 /* DailyHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2472D982A1B002433E7 /* DailyHistory.swift */; };
+		A019A24A2D982D26002433E7 /* PomodoroTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2492D982D26002433E7 /* PomodoroTimerViewModel.swift */; };
+		A019A24C2D984352002433E7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A24B2D984352002433E7 /* MainView.swift */; };
+		A019A24E2D98435D002433E7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A24D2D98435D002433E7 /* SettingsView.swift */; };
+		A019A2502D98436A002433E7 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A24F2D98436A002433E7 /* HistoryView.swift */; };
 		A07EF27C2D982426009C6264 /* Pomodoro_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EF27B2D982426009C6264 /* Pomodoro_AppApp.swift */; };
 		A07EF27E2D982426009C6264 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EF27D2D982426009C6264 /* ContentView.swift */; };
 		A07EF2802D982427009C6264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07EF27F2D982427009C6264 /* Assets.xcassets */; };
@@ -17,9 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A019A2432D982916002433E7 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		A019A2432D982916002433E7 /* PomodoroSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroSession.swift; sourceTree = "<group>"; };
 		A019A2452D9829AB002433E7 /* FocusCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCategory.swift; sourceTree = "<group>"; };
 		A019A2472D982A1B002433E7 /* DailyHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHistory.swift; sourceTree = "<group>"; };
+		A019A2492D982D26002433E7 /* PomodoroTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimerViewModel.swift; sourceTree = "<group>"; };
+		A019A24B2D984352002433E7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A019A24D2D98435D002433E7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A019A24F2D98436A002433E7 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		A07EF2782D982426009C6264 /* Pomodoro App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pomodoro App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07EF27B2D982426009C6264 /* Pomodoro_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomodoro_AppApp.swift; sourceTree = "<group>"; };
 		A07EF27D2D982426009C6264 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,7 +49,7 @@
 		A019A2402D9828F3002433E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A019A2432D982916002433E7 /* TimerModel.swift */,
+				A019A2432D982916002433E7 /* PomodoroSession.swift */,
 				A019A2452D9829AB002433E7 /* FocusCategory.swift */,
 				A019A2472D982A1B002433E7 /* DailyHistory.swift */,
 			);
@@ -51,6 +59,10 @@
 		A019A2412D9828FA002433E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A07EF27D2D982426009C6264 /* ContentView.swift */,
+				A019A24B2D984352002433E7 /* MainView.swift */,
+				A019A24D2D98435D002433E7 /* SettingsView.swift */,
+				A019A24F2D98436A002433E7 /* HistoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -58,6 +70,7 @@
 		A019A2422D9828FE002433E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A019A2492D982D26002433E7 /* PomodoroTimerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -85,7 +98,6 @@
 				A019A2412D9828FA002433E7 /* View */,
 				A019A2422D9828FE002433E7 /* ViewModel */,
 				A07EF27B2D982426009C6264 /* Pomodoro_AppApp.swift */,
-				A07EF27D2D982426009C6264 /* ContentView.swift */,
 				A07EF27F2D982427009C6264 /* Assets.xcassets */,
 				A07EF2812D982427009C6264 /* Preview Content */,
 			);
@@ -171,9 +183,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A019A2462D9829AB002433E7 /* FocusCategory.swift in Sources */,
+				A019A24E2D98435D002433E7 /* SettingsView.swift in Sources */,
+				A019A24C2D984352002433E7 /* MainView.swift in Sources */,
 				A019A2482D982A1B002433E7 /* DailyHistory.swift in Sources */,
-				A019A2442D982916002433E7 /* TimerModel.swift in Sources */,
+				A019A2442D982916002433E7 /* PomodoroSession.swift in Sources */,
+				A019A24A2D982D26002433E7 /* PomodoroTimerViewModel.swift in Sources */,
 				A07EF27E2D982426009C6264 /* ContentView.swift in Sources */,
+				A019A2502D98436A002433E7 /* HistoryView.swift in Sources */,
 				A07EF27C2D982426009C6264 /* Pomodoro_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
