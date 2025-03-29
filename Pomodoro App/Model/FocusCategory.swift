@@ -1,8 +1,10 @@
-//
-//  FocusCategory.swift
-//  Pomodoro App
-//
-//  Created by Адлет Жумагалиев on 29.03.2025.
-//
-
 import Foundation
+
+enum Category {
+    case Work
+    case Study
+    case Workout
+    case Reading
+    case Meditation
+    case Others
+}

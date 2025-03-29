@@ -1,8 +1,6 @@
-//
-//  DailyHistory.swift
-//  Pomodoro App
-//
-//  Created by Адлет Жумагалиев on 29.03.2025.
-//
-
 import Foundation
+
+struct DailyHistory {
+    var focusTime: Int
+    var breakTime: Int
+}
