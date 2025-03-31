@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = PomodoroTimerViewModel(pomodoro: PomodoroSession(focusTime: 1500, breakTime: 300, state: .paused, sessionType: .focus))
+    @State var bgImage: String = "bg1"
     var body: some View {
         TabView {
-            MainView()
+            MainView(viewModel: viewModel, bgImage: $bgImage)
                 .tabItem {
                     Label("Main", systemImage: "house")
                 }

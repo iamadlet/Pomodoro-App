@@ -3,6 +3,7 @@ import UIKit
 
 class PomodoroTimerViewModel: ObservableObject {
     @Published var pomodoro: PomodoroSession
+    @Published var selectedCategory: Category? = nil
     
     private var timer: DispatchSourceTimer?
     private var isTimerRunning = false
@@ -67,6 +68,14 @@ class PomodoroTimerViewModel: ObservableObject {
         endBackgroundTask()
     }
     
+    func setCategory(name: Category){
+        self.selectedCategory = name
+    }
+    
+//    func getSelectedCategory() -> String {
+//        return self.selectedCategory ?? .Others
+//    }
+    
     private func beginBackgroundTask() {
         backgroundTaskID = UIApplication.shared.beginBackgroundTask() {
             self.endBackgroundTask()
@@ -87,6 +96,30 @@ class PomodoroTimerViewModel: ObservableObject {
         } else if pomodoro.sessionType == .breakTime && pomodoro.elapsedTime >= pomodoro.breakTime {
             pomodoro.sessionType = .focus
             pomodoro.elapsedTime = 0
+        }
+    }
+    
+//    func changeCategory() -> String {
+//        
+//    }
+    
+    enum Category: String, CaseIterable {
+        case Work
+        case Study
+        case Workout
+        case Reading
+        case Meditation
+        case Others
+        
+        var displayName: String {
+            switch self {
+            case .Work: return "Work"
+            case .Study: return "Study"
+            case .Workout: return "Workout"
+            case .Reading: return "Reading"
+            case .Meditation: return "Meditation"
+            case .Others: return "Others"
+            }
         }
     }
 }

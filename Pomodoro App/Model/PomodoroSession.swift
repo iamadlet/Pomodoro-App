@@ -4,11 +4,11 @@ struct PomodoroSession {
     var elapsedTime: TimeInterval = 0
     var focusTime: TimeInterval
     var breakTime: TimeInterval
-    var state: State
+    var state: TimerState
     var sessionType: SessionType
 }
 
-enum State {
+enum TimerState {
     case running
     case paused
     case completed
