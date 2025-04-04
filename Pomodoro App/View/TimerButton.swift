@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct TimerButton: View {
+    let systemImageName: String
+    let action: () -> Void
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Circle()
+                .frame(width: 56, height: 56)
+                .foregroundColor(.gray.opacity(0.5))
+                .padding(.trailing, 5)
+            Button(action: action) {
+                Image(systemName: systemImageName)
+                    .resizable()
+                    .frame(width: 18, height: 20)
+                    .foregroundColor(.white)
+            }
+            
+        }
     }
 }
 
-#Preview {
-    TimerButton()
-}
+//#Preview {
+//    TimerButton(systemImageName: <#T##String#>, action: <#T##() -> Void#>)
+//}

@@ -28,9 +28,35 @@ struct MainView: View {
                 })
                 
                 //MARK: - Timer Circle
-                
+                ZStack {
+                    Circle()
+                        .stroke(lineWidth: 6)
+                        .foregroundStyle(.gray.opacity(0.5))
+                        .frame(width: 248, height: 264)
+                    
+                    Circle()
+                        .trim(from: 0.0, to: viewModel.pomodoro.elapsedTime / viewModel.totalTime)
+                        .stroke(lineWidth: 6)
+                        .rotationEffect(.degrees(-90))
+                        .foregroundStyle(.white)
+                        .frame(width: 248, height: 264)
+                    
+                    VStack {
+                        Text("\(viewModel.timeRemainingFormatted)")
+                            .font(.system(size: 44, weight: .bold))
+                            .foregroundStyle(.white)
+                        
+                        Text(viewModel.focusMessage)
+                            .font(.system(size: 16))
+                            .foregroundStyle(.white)
+                    }
+                }
                 //MARK: - Pause/Resume & Stop Buttons
-                
+                HStack {
+                    TimerButton(systemImageName: "play", action: viewModel.startTimer)
+                    
+                    TimerButton(systemImageName: "stop.fill", action: viewModel.pauseTimer)
+                }
             }
         }
     }

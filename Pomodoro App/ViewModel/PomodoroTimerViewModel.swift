@@ -11,6 +11,25 @@ class PomodoroTimerViewModel: ObservableObject {
     
     init(pomodoro: PomodoroSession) {
         self.pomodoro = pomodoro
+        self.pomodoro.focusTime = 1500
+        self.pomodoro.breakTime = 300
+    }
+    
+    var timeRemainingFormatted: String {
+        let total = pomodoro.sessionType == .focus ? pomodoro.focusTime : pomodoro.breakTime
+        let remaining = max(total - pomodoro.elapsedTime, 0)
+        let minute = Int(remaining) / 60
+        let second = Int(remaining) % 60
+        return String(format: "%02d:%02d", minute, second)
+    }
+    
+    var totalTime: Double {
+        let total = pomodoro.sessionType == .focus ? pomodoro.focusTime : pomodoro.breakTime
+        return Double(total)
+    }
+    
+    var focusMessage: String {
+        pomodoro.sessionType == .focus ? "Focus on your task" : "Break"
     }
     
     func setFocusTime(time: TimeInterval) {
@@ -45,7 +64,7 @@ class PomodoroTimerViewModel: ObservableObject {
     }
     
     func pauseTimer() {
-        guard isTimerRunning else { return }
+        guard isTimerRunning else { re turn }
         
         timer?.suspend()
         isTimerRunning = false;
@@ -62,6 +81,7 @@ class PomodoroTimerViewModel: ObservableObject {
         if isTimerRunning {
             timer?.cancel()
             isTimerRunning = false
+            pomodoro.elapsedTime = 0
         }
         
         timer = nil
