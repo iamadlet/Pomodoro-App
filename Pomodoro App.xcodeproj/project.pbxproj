@@ -16,6 +16,7 @@
 		A019A2502D98436A002433E7 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A24F2D98436A002433E7 /* HistoryView.swift */; };
 		A019A2522D985138002433E7 /* CategorySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2512D985138002433E7 /* CategorySheetView.swift */; };
 		A019A2542D9C0A84002433E7 /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2532D9C0A84002433E7 /* TimerButton.swift */; };
+		A02DE3792DA141FA00AA67BD /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02DE3782DA141FA00AA67BD /* TimePickerView.swift */; };
 		A07EF27C2D982426009C6264 /* Pomodoro_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EF27B2D982426009C6264 /* Pomodoro_AppApp.swift */; };
 		A07EF27E2D982426009C6264 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EF27D2D982426009C6264 /* ContentView.swift */; };
 		A07EF2802D982427009C6264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07EF27F2D982427009C6264 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		A019A24F2D98436A002433E7 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		A019A2512D985138002433E7 /* CategorySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySheetView.swift; sourceTree = "<group>"; };
 		A019A2532D9C0A84002433E7 /* TimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerButton.swift; sourceTree = "<group>"; };
+		A02DE3782DA141FA00AA67BD /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		A07EF2782D982426009C6264 /* Pomodoro App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pomodoro App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07EF27B2D982426009C6264 /* Pomodoro_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomodoro_AppApp.swift; sourceTree = "<group>"; };
 		A07EF27D2D982426009C6264 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				A019A24F2D98436A002433E7 /* HistoryView.swift */,
 				A019A2512D985138002433E7 /* CategorySheetView.swift */,
 				A019A2532D9C0A84002433E7 /* TimerButton.swift */,
+				A02DE3782DA141FA00AA67BD /* TimePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				A019A24C2D984352002433E7 /* MainView.swift in Sources */,
 				A019A2482D982A1B002433E7 /* DailyHistory.swift in Sources */,
 				A019A2442D982916002433E7 /* PomodoroSession.swift in Sources */,
+				A02DE3792DA141FA00AA67BD /* TimePickerView.swift in Sources */,
 				A019A24A2D982D26002433E7 /* PomodoroTimerViewModel.swift in Sources */,
 				A07EF27E2D982426009C6264 /* ContentView.swift in Sources */,
 				A019A2502D98436A002433E7 /* HistoryView.swift in Sources */,

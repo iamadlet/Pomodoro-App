@@ -1,10 +1,3 @@
-//
-//  TimerButton.swift
-//  Pomodoro App
-//
-//  Created by Адлет Жумагалиев on 01.04.2025.
-//
-
 import SwiftUI
 
 struct TimerButton: View {

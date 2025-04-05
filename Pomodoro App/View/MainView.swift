@@ -41,7 +41,7 @@ struct MainView: View {
                         .foregroundStyle(.white)
                         .frame(width: 248, height: 264)
                     
-                    VStack {
+                    VStack(spacing: 8) {
                         Text("\(viewModel.timeRemainingFormatted)")
                             .font(.system(size: 44, weight: .bold))
                             .foregroundStyle(.white)
@@ -51,11 +51,16 @@ struct MainView: View {
                             .foregroundStyle(.white)
                     }
                 }
+                .padding(.bottom, 60)
                 //MARK: - Pause/Resume & Stop Buttons
-                HStack {
-                    TimerButton(systemImageName: "play", action: viewModel.startTimer)
+                HStack(spacing: 80) {
+                    if viewModel.isTimerRunning {
+                        TimerButton(systemImageName: "pause", action: viewModel.pauseTimer)
+                    } else {
+                        TimerButton(systemImageName: "play", action: viewModel.startTimer)                        
+                    }
                     
-                    TimerButton(systemImageName: "stop.fill", action: viewModel.pauseTimer)
+                    TimerButton(systemImageName: "stop.fill", action: viewModel.stopTimer)
                 }
             }
         }

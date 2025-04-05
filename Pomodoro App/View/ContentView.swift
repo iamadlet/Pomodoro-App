@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var viewModel = PomodoroTimerViewModel(pomodoro: PomodoroSession(focusTime: 1500, breakTime: 300, state: .paused, sessionType: .focus))
     @State var bgImage: String = "bg1"
+    
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor.white // <- inactive item color
+    }
+    
     var body: some View {
         TabView {
             MainView(viewModel: viewModel, bgImage: $bgImage)
@@ -17,7 +22,7 @@ struct ContentView: View {
                     Label("Main", systemImage: "house")
                 }
             
-            SettingsView()
+            SettingsView(viewModel: viewModel, focusTime: Date.now, breakTime: Date.now)
                 .tabItem {
                     Label("Settings", systemImage: "slider.horizontal.3")
                 }
@@ -27,6 +32,7 @@ struct ContentView: View {
                     Label("History", systemImage: "doc")
                 }
         }
+        .accentColor(.gray)
     }
 }
 

@@ -4,10 +4,11 @@ import UIKit
 class PomodoroTimerViewModel: ObservableObject {
     @Published var pomodoro: PomodoroSession
     @Published var selectedCategory: Category? = nil
+    @Published var isTimerRunning = false
     
     private var timer: DispatchSourceTimer?
-    private var isTimerRunning = false
     private var backgroundTaskID: UIBackgroundTaskIdentifier = .invalid
+    private var isTimerPaused = false
     
     init(pomodoro: PomodoroSession) {
         self.pomodoro = pomodoro
@@ -41,50 +42,61 @@ class PomodoroTimerViewModel: ObservableObject {
     }
     
     func startTimer() {
-        guard !isTimerRunning else { return }
-        
+        if let existingTimer = timer {
+            if isTimerPaused {
+                resumeTimer()
+            }
+            return
+        }
+
         isTimerRunning = true
-//        pomodoro.elapsedTime = 0
-        
+        isTimerPaused = false
+
         timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
         timer?.schedule(deadline: .now(), repeating: 1)
-        
+
         timer?.setEventHandler { [weak self] in
             guard let self = self else { return }
-            
+
             DispatchQueue.main.async {
                 self.pomodoro.elapsedTime += 1
-                
                 self.handleTimerCycle()
             }
         }
-        
+
         timer?.resume()
         beginBackgroundTask()
     }
-    
+
     func pauseTimer() {
-        guard isTimerRunning else { re turn }
-        
+        guard isTimerRunning, !isTimerPaused else { return }
+
         timer?.suspend()
-        isTimerRunning = false;
+        isTimerRunning = false
+        isTimerPaused = true
     }
-    
+
     func resumeTimer() {
-        guard !isTimerRunning else { return }
-        
+        guard !isTimerRunning, isTimerPaused else { return }
+
         timer?.resume()
-        isTimerRunning = true;
+        isTimerRunning = true
+        isTimerPaused = false
     }
     
     func stopTimer() {
-        if isTimerRunning {
-            timer?.cancel()
-            isTimerRunning = false
-            pomodoro.elapsedTime = 0
+        if isTimerPaused {
+            timer?.resume()
+            isTimerPaused = false
         }
         
+        timer?.cancel()
         timer = nil
+        
+        isTimerRunning = false
+        pomodoro.elapsedTime = 0
+        pomodoro = pomodoro
+        
         endBackgroundTask()
     }
     
@@ -117,6 +129,14 @@ class PomodoroTimerViewModel: ObservableObject {
             pomodoro.sessionType = .focus
             pomodoro.elapsedTime = 0
         }
+    }
+    
+    func setFocusTime(minutes: Int, seconds: Int) {
+        pomodoro.focusTime = TimeInterval((minutes * 60) + seconds)
+    }
+    
+    func setBreakTime(minutes: Int, seconds: Int) {
+        pomodoro.breakTime = TimeInterval((minutes * 60) + seconds)
     }
     
 //    func changeCategory() -> String {
