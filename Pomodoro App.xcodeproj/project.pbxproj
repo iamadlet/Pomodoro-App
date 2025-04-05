@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A019A2442D982916002433E7 /* PomodoroSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2432D982916002433E7 /* PomodoroSession.swift */; };
-		A019A2462D9829AB002433E7 /* FocusCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2452D9829AB002433E7 /* FocusCategory.swift */; };
 		A019A2482D982A1B002433E7 /* DailyHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2472D982A1B002433E7 /* DailyHistory.swift */; };
 		A019A24A2D982D26002433E7 /* PomodoroTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A2492D982D26002433E7 /* PomodoroTimerViewModel.swift */; };
 		A019A24C2D984352002433E7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019A24B2D984352002433E7 /* MainView.swift */; };
@@ -25,7 +24,6 @@
 
 /* Begin PBXFileReference section */
 		A019A2432D982916002433E7 /* PomodoroSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroSession.swift; sourceTree = "<group>"; };
-		A019A2452D9829AB002433E7 /* FocusCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCategory.swift; sourceTree = "<group>"; };
 		A019A2472D982A1B002433E7 /* DailyHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHistory.swift; sourceTree = "<group>"; };
 		A019A2492D982D26002433E7 /* PomodoroTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimerViewModel.swift; sourceTree = "<group>"; };
 		A019A24B2D984352002433E7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				A019A2432D982916002433E7 /* PomodoroSession.swift */,
-				A019A2452D9829AB002433E7 /* FocusCategory.swift */,
 				A019A2472D982A1B002433E7 /* DailyHistory.swift */,
 			);
 			path = Model;
@@ -193,7 +190,6 @@
 			files = (
 				A019A2542D9C0A84002433E7 /* TimerButton.swift in Sources */,
 				A019A2522D985138002433E7 /* CategorySheetView.swift in Sources */,
-				A019A2462D9829AB002433E7 /* FocusCategory.swift in Sources */,
 				A019A24E2D98435D002433E7 /* SettingsView.swift in Sources */,
 				A019A24C2D984352002433E7 /* MainView.swift in Sources */,
 				A019A2482D982A1B002433E7 /* DailyHistory.swift in Sources */,

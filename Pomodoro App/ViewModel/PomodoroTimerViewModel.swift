@@ -3,6 +3,7 @@ import UIKit
 
 class PomodoroTimerViewModel: ObservableObject {
     @Published var pomodoro: PomodoroSession
+    @Published var history: [Date: DailyHistory] = [:]
     @Published var selectedCategory: Category? = nil
     @Published var isTimerRunning = false
     
