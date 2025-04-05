@@ -7,12 +7,11 @@ struct HistoryView: View {
             Color.black.opacity(0.9)
                 .ignoresSafeArea()
             VStack {
-                ForEach(viewModel.history) { date in
+//                ForEach(viewModel.history) { date in
                     
                 }
             }
         }
-    }
 }
 
 #Preview {

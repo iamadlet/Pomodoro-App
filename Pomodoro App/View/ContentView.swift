@@ -27,7 +27,7 @@ struct ContentView: View {
                     Label("Settings", systemImage: "slider.horizontal.3")
                 }
             
-            HistoryView()
+            HistoryView(viewModel: viewModel)
                 .tabItem {
                     Label("History", systemImage: "doc")
                 }

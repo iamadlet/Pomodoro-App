@@ -124,11 +124,13 @@ class PomodoroTimerViewModel: ObservableObject {
     
     private func handleTimerCycle() {
         if pomodoro.sessionType == .focus && pomodoro.elapsedTime >= pomodoro.focusTime {
+            stopTimer()
             pomodoro.sessionType = .breakTime
-            pomodoro.elapsedTime = 0
+//            pomodoro.elapsedTime = 0
         } else if pomodoro.sessionType == .breakTime && pomodoro.elapsedTime >= pomodoro.breakTime {
+            stopTimer()
             pomodoro.sessionType = .focus
-            pomodoro.elapsedTime = 0
+//            pomodoro.elapsedTime = 0
         }
     }
     
