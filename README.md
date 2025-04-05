@@ -3,7 +3,7 @@
 A beautifully designed and customizable Pomodoro Timer iOS application built with SwiftUI. This app helps users maintain focus and productivity through structured work and break sessions, based on the proven Pomodoro Technique.
 
 
-> ![Demo](screenshots/demo.gif)
+> ![Demo](screenshots/demo.mp4)
 
 
 ## 🚀 Features
