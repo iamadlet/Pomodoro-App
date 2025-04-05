@@ -3,7 +3,7 @@ import UIKit
 
 class PomodoroTimerViewModel: ObservableObject {
     @Published var pomodoro: PomodoroSession
-    @Published var history: [Date: DailyHistory] = [:]
+    @Published var dailyHistory: [Date : DailyHistory] = [:]
     @Published var selectedCategory: Category? = nil
     @Published var isTimerRunning = false
     
@@ -15,6 +15,10 @@ class PomodoroTimerViewModel: ObservableObject {
         self.pomodoro = pomodoro
         self.pomodoro.focusTime = 1500
         self.pomodoro.breakTime = 300
+    }
+    
+    var sortedHistory: [(Date, DailyHistory)] {
+        dailyHistory.sorted(by: { $0.key > $1.key})
     }
     
     var timeRemainingFormatted: String {
@@ -124,10 +128,12 @@ class PomodoroTimerViewModel: ObservableObject {
     
     private func handleTimerCycle() {
         if pomodoro.sessionType == .focus && pomodoro.elapsedTime >= pomodoro.focusTime {
+            updateHistoryAfterSession()
             stopTimer()
             pomodoro.sessionType = .breakTime
 //            pomodoro.elapsedTime = 0
         } else if pomodoro.sessionType == .breakTime && pomodoro.elapsedTime >= pomodoro.breakTime {
+            updateHistoryAfterSession()
             stopTimer()
             pomodoro.sessionType = .focus
 //            pomodoro.elapsedTime = 0
@@ -142,6 +148,27 @@ class PomodoroTimerViewModel: ObservableObject {
         pomodoro.breakTime = TimeInterval((minutes * 60) + seconds)
     }
     
+    
+    func updateHistoryAfterSession() {
+        let today = Calendar.current.startOfDay(for: Date()) // Strip time component
+
+        if var todayHistory = dailyHistory[today] {
+            // Update existing record
+            if pomodoro.sessionType == .focus {
+                todayHistory.focusTime += Int(pomodoro.elapsedTime)
+            } else {
+                todayHistory.breakTime += Int(pomodoro.elapsedTime)
+            }
+            dailyHistory[today] = todayHistory
+        } else {
+            // No entry for today yet — create one
+            if pomodoro.sessionType == .focus {
+                dailyHistory[today] = DailyHistory(focusTime: Int(pomodoro.elapsedTime), breakTime: 0)
+            } else {
+                dailyHistory[today] = DailyHistory(focusTime: 0, breakTime: Int(pomodoro.elapsedTime))
+            }
+        }
+    }
 //    func changeCategory() -> String {
 //        
 //    }
