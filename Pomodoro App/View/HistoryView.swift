@@ -26,23 +26,22 @@ struct HistoryView: View {
                         HStack {
                             Text("Focus Time")
                             Spacer()
-                            Text("\(fHours):\(fMinutes):\(fSeconds)")
+                            Text(String(format: "%02d:%02d:%02d", fHours, fMinutes, fSeconds))
                         }
                         .padding()
                         
                         Divider()
                         
-                        Spacer()
-                        
                         HStack {
                             Text("Break Time")
                             Spacer()
-                            Text("\(bHours):\(bMinutes):\(bSeconds)")
+                            Text(String(format: "%02d:%02d:%02d", bHours, bMinutes, bSeconds))
                         }
                         .padding()
                         
                         Divider()
                     }
+                    Spacer()
                 }
             }
             .foregroundStyle(.white)
